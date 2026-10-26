@@ -658,7 +658,7 @@ function updateCard(idx) {
   c.querySelector('.mc-step').textContent=`STEP ${idx+1} / ${schedData.length}`;
   c.querySelector('.mc-name').textContent=d.name;
   c.querySelector('.mc-sub').textContent=`${d.day||''} ${d.time||''}${d.transport?' | '+(TI[d.transport]||'')+' '+d.transport:''}`;
-  c.querySelector('.mc-memo').textContent=d.momo||'';
+  c.querySelector('.mc-memo').textContent=d.memo||'';
   c.querySelector('.mc-addr').textContent=d.address||'';
 }
 function resetCard() {
