@@ -214,13 +214,6 @@ html, body { height:100%; font-family:'Apple SD Gothic Neo','Malgun Gothic',sans
   <span onclick="document.getElementById('sheet-status').style.display='none'" style="cursor:pointer;opacity:.7;font-size:14px;">✕</span>
 </div>
 
-<!-- 업데이트 배너 -->
-<div id="update-banner" style="display:none">
-  <span id="banner-msg"></span>
-  <button class="btn-banner" onclick="exportHTML()">💾 HTML로 저장해서 공유하기</button>
-  <span class="btn-banner-x" onclick="document.getElementById('update-banner').style.display='none'">✕</span>
-</div>
-
 <!-- 메인 -->
 <div id="app">
 
@@ -499,15 +492,6 @@ function loadData(data, title) {
   const days = [...new Set(data.map(d=>d.day).filter(Boolean))];
   document.getElementById('trip-meta').textContent =
     days.length ? `${days[0]} ~ ${days[days.length-1]} | 총 ${data.length}개 장소` : `총 ${data.length}개 장소`;
-
-  // 배너
-  if (title && title !== '후쿠오카 3박 4일') {
-    document.getElementById('banner-msg').textContent =
-      `✅ "${title}" 로드 완료 (${data.length}개 장소) — 저장 후 공유하세요.`;
-    document.getElementById('update-banner').style.display = 'flex';
-  } else {
-    document.getElementById('update-banner').style.display = 'none';
-  }
 
   renderSchedule();
   if (gmap) drawMapAll();
