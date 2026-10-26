@@ -200,12 +200,6 @@ html, body { height:100%; font-family:'Apple SD Gothic Neo','Malgun Gothic',sans
     <h1 id="trip-title">✈️ 여행 일정 뷰어</h1>
     <div class="trip-meta" id="trip-meta"></div>
   </div>
-  <div class="hdr-btns">
-    <button class="btn btn-ghost" onclick="openSheetModal()">🔗 시트 연동</button>
-    <button class="btn btn-ghost" onclick="openModal()">📂 CSV</button>
-    <button class="btn btn-white" onclick="exportHTML()">💾 저장</button>
-    <button class="btn btn-ghost" onclick="openGuide()">❓</button>
-  </div>
 </div>
 
 <!-- 시트 연동 상태 바 -->
@@ -499,15 +493,6 @@ function loadData(data, title) {
   const days = [...new Set(data.map(d=>d.day).filter(Boolean))];
   document.getElementById('trip-meta').textContent =
     days.length ? `${days[0]} ~ ${days[days.length-1]} | 총 ${data.length}개 장소` : `총 ${data.length}개 장소`;
-
-  // 배너
-  if (title && title !== '후쿠오카 3박 4일') {
-    document.getElementById('banner-msg').textContent =
-      `✅ "${title}" 로드 완료 (${data.length}개 장소) — 저장 후 공유하세요.`;
-    document.getElementById('update-banner').style.display = 'flex';
-  } else {
-    document.getElementById('update-banner').style.display = 'none';
-  }
 
   renderSchedule();
   if (gmap) drawMapAll();
