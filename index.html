@@ -121,6 +121,7 @@ html, body { height:100%; font-family:'Apple SD Gothic Neo','Malgun Gothic',sans
 .mc-step { font-size:11px; color:#1a73e8; font-weight:700; margin-bottom:1px; }
 .mc-name { font-size:15px; font-weight:700; color:#202124; }
 .mc-sub  { font-size:12px; color:#80868b; margin-top:3px; }
+.mc-memo { font-size:12px; color:#5f6368; margin-top:4px; font-style:italic; }  
 .mc-addr { font-size:11px; color:#aaa; margin-top:2px; }
 
 /* 구글맵 InfoWindow */
@@ -254,6 +255,7 @@ html, body { height:100%; font-family:'Apple SD Gothic Neo','Malgun Gothic',sans
       <div class="mc-step">▶ 재생을 눌러 시작하세요</div>
       <div class="mc-name">여행 일정 뷰어</div>
       <div class="mc-sub">좌측 목록에서 장소를 클릭해도 됩니다</div>
+      <div class="mc-memo"></div>
       <div class="mc-addr"></div>
     </div>
   </div>
@@ -656,6 +658,7 @@ function updateCard(idx) {
   c.querySelector('.mc-step').textContent=`STEP ${idx+1} / ${schedData.length}`;
   c.querySelector('.mc-name').textContent=d.name;
   c.querySelector('.mc-sub').textContent=`${d.day||''} ${d.time||''}${d.transport?' | '+(TI[d.transport]||'')+' '+d.transport:''}`;
+  c.querySelector('.mc-memo').textContent=d.momo||'';
   c.querySelector('.mc-addr').textContent=d.address||'';
 }
 function resetCard() {
@@ -663,6 +666,7 @@ function resetCard() {
   c.querySelector('.mc-step').textContent='▶ 재생을 눌러 시작하세요';
   c.querySelector('.mc-name').textContent='여행 일정 뷰어';
   c.querySelector('.mc-sub').textContent='좌측 목록에서 장소를 클릭해도 됩니다';
+  c.querySelector('.mc-memo').textContent='';
   c.querySelector('.mc-addr').textContent='';
 }
 function updateProgress() {
