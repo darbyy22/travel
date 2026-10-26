@@ -621,7 +621,7 @@ function goToStep(idx, animated) {
 
   // 지도 이동
   gmap.panTo({lat:item.lat,lng:item.lng});
-  setTimeout(()=>gmap.setZoom(ZOOM_T[item.transport]||13), 350);
+  setTimeout(()=>gmap.setZoom(15||13), 350);
 
   updateDonePoly(idx);
   updateCard(idx);
